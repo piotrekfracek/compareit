@@ -1,0 +1,16 @@
+doctype html
+html ng-app="AngularAppName"
+  head
+    base href='/'
+    meta charset='utf-8'
+    meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'
+    meta name='viewport' content='width=device-width, height=device-height, initial-scale=1.0, user-scalable=0'
+    link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"
+
+    == stylesheet_link_tag 'vendor'
+    == stylesheet_link_tag 'main'
+
+  body
+    == yield
+    == javascript_include_tag 'vendor'
+    == javascript_include_tag 'main'
