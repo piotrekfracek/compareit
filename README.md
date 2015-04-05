@@ -1,6 +1,6 @@
 # Init
 ```
-git clone https://github.com/piotrekfracek/middleman-angular-slim-sass-template.git
+git clone this
 cd middleman-angular-slim-sass-template
 npm install
 bundle
