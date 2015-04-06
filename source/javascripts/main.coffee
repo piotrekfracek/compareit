@@ -18,9 +18,12 @@ provideStates = ($stateProvider) ->
       views:
         'Content':
           template: '<ui-view/>'
-    .state 'main.home',
+    .state 'main.landing',
       url: '/'
-      templateUrl: '/templates/home/home.html'
+      templateUrl: '/templates/landing/landing.html'
+    .state 'main.compare',
+      url: '/compare',
+      templateUrl: '/templates/compare/compare.html'
 
 configFunction = ($stateProvider, $locationProvider, $urlRouterProvider) ->
   configureHtml5mode $locationProvider, $urlRouterProvider
