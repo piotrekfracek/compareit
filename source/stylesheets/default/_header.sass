@@ -1,6 +1,6 @@
 header
   width: 100%
-  padding: 60px 0 40px
+  padding: 60px 0 50px
 
 header .header--first-row
   position: relative
@@ -11,6 +11,13 @@ header .header--first-row__icons
   right: 0
   top: 0
 
+  .fa-times
+    color: $color-red
+    margin-right: 1em
+
+  .fa-check
+    color: $color-green
+
 header .header--second-row
   position: relative
 
@@ -20,9 +27,9 @@ header .header--second-row__buttons
   bottom: 0
 
 header .header--second-row__buttons .orientation-btn
-  background-color: $color-midgray
   width: 150px
   height: 52px
+  background-color: $color-midgray
   border-bottom: 6px solid rgba(0,0,0,0.15)
   color: $color-lightgray
   font:
@@ -33,10 +40,3 @@ header .header--second-row__buttons .orientation-btn
   &.active
     color: $color-blue
     background-color: $color-darkgray
-
-.fa-times
-  color: $color-red
-  margin-right: 1em
-
-.fa-check
-  color: $color-green
