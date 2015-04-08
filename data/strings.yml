@@ -1,0 +1,11 @@
+landing:
+  compare_button: Compare it
+compare:
+  configure_menu:
+    header:   Configure comparison
+    you_can:  'You can:'
+    move_it:  Drag picture to move it
+    scale_it: Drag picture, with pushed 'S', to scale it
+    compare_mode:
+      vertical:   Vertical
+      horizontal: Horizontal
