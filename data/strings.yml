@@ -10,8 +10,12 @@ compare:
       vertical:   Vertical
       horizontal: Horizontal
   normal_header:
+    logo: Compareit Logo
     details: 'Details:'
     picture_1: Picture 1
+    link_1: ': http://pastedurl.to/first_pic.png'
     picture_2: Picture 2
+    link_2: ': http://pastedurl.to/second_pic.png'
     date: Date
-    link_3: 'http://domain.com'
+    date_num: ': 21-06-2015'
+    link_3: 'http://domain.com/link'
