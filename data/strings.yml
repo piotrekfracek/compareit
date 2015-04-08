@@ -9,3 +9,9 @@ compare:
     compare_mode:
       vertical:   Vertical
       horizontal: Horizontal
+  normal_header:
+    details: 'Details:'
+    picture_1: Picture 1
+    picture_2: Picture 2
+    date: Date
+    link_3: 'http://domain.com'
