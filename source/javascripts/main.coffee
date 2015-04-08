@@ -3,7 +3,7 @@
 #= require modules
 #= stub vendor
 
-app = angular.module 'AngularAppName', [
+app = angular.module 'Compareit', [
   'ui.router'
 ]
 
