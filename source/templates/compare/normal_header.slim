@@ -1,11 +1,10 @@
 .header--first-row
-  .header--first-row__logo
-    h4 = data.strings.compare.normal_header.logo
+  h4.header--first-row__logo = data.strings.compare.normal_header.logo  
   .header--first-row__icons
     button.i.fa.fa-plus.fa-2x
     button.i.fa.fa-pencil.fa-2x
 .header--second-row
-  h2  = data.strings.compare.normal_header.details
+  h2    = data.strings.compare.normal_header.details
   .header--second-row__text-line
     h3  = data.strings.compare.normal_header.picture_1
     p   = data.strings.compare.normal_header.link_1
@@ -16,7 +15,5 @@
     h3  = data.strings.compare.normal_header.date
     p   = data.strings.compare.normal_header.date_num
   .header--second-row__wrapper
-    .globe-field
-      i.fa.fa-globe
-    .field.link
-      p = data.strings.compare.normal_header.link_3
+    i.header--second-row__wrapper--field.globe-field.fa.fa-globe  
+    p.header--second-row__wrapper--field.link-field = data.strings.compare.normal_header.link_3

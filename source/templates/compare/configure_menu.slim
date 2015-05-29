@@ -1,12 +1,14 @@
 .header--first-row
-  h1 = data.strings.compare.configure_menu.header
+  h1   = data.strings.compare.configure_menu.header
   .header--first-row__icons
     button.i.fa.fa-times.fa-2x
     button.i.fa.fa-check.fa-2x
 .header--second-row
-  h2 = data.strings.compare.configure_menu.you_can
-  p  = data.strings.compare.configure_menu.move_it
-  p  = data.strings.compare.configure_menu.scale_it
+  h2   = data.strings.compare.configure_menu.you_can
+  .header--second-row__text-line
+    p  = data.strings.compare.configure_menu.move_it
+  .header--second-row__text-line
+    p  = data.strings.compare.configure_menu.scale_it
   .header--second-row__wrapper
-    button.field.orientation-btn.active = data.strings.compare.configure_menu.compare_mode.vertical
-    button.field.orientation-btn        = data.strings.compare.configure_menu.compare_mode.horizontal
+    button.header--second-row__wrapper--field.orientation-field.active = data.strings.compare.configure_menu.compare_mode.vertical
+    button.header--second-row__wrapper--field.orientation-field        = data.strings.compare.configure_menu.compare_mode.horizontal
