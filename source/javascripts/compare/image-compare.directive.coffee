@@ -1,4 +1,4 @@
-angular.module('Compareit').directive 'comparator', ->
+angular.module('Compareit').directive 'imageCompare', ->
 
   link: (scope, element, attrs) ->
     imageFront = $('.image-container--front')

@@ -1,7 +1,10 @@
 .compare-section
   .container
     header
-      .compare--normal-hader   ng-include="'/templates/compare/normal_header.html'"
-      /.compare--configure-menu ng-include="'/templates/compare/configure_menu.html'"
+      /.compare--normal-hader   ng-include="'/templates/compare/normal_header.html'"
+      div: .compare--configure-menu(
+        ng-controller="NormalHeaderCtrl as normalCtrl"
+        ng-include="'/templates/compare/configure_menu.html'"
+        )
 
     .compare--comparator ng-include="'/templates/compare/comparator.html'"

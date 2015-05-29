@@ -10,5 +10,11 @@
   .header--second-row__text-line
     p  = data.strings.compare.configure_menu.scale_it
   .header--second-row__wrapper
-    button.header--second-row__wrapper--field.orientation-field.active = data.strings.compare.configure_menu.compare_mode.vertical
-    button.header--second-row__wrapper--field.orientation-field        = data.strings.compare.configure_menu.compare_mode.horizontal
+    button: .header--second-row__wrapper--field.orientation-field(
+      ng-click="normalCtrl.toggleVertical()"
+      ng-class="{'active' : normalCtrl.isVertical()}"    
+      ) = data.strings.compare.configure_menu.orientation.vertical
+    button: .header--second-row__wrapper--field.orientation-field(
+      ng-click="normalCtrl.toggleHorizontal()"
+      ng-class="{'active' : normalCtrl.isHorizontal()}"
+      ) = data.strings.compare.configure_menu.orientation.horizontal

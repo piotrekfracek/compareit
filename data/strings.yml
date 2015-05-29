@@ -6,7 +6,7 @@ compare:
     you_can:  'You can:'
     move_it:  Drag picture to move it
     scale_it: Drag picture, with pushed 'S', to scale it
-    compare_mode:
+    orientation:
       vertical:   Vertical
       horizontal: Horizontal
   normal_header:
