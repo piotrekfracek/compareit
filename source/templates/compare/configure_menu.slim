@@ -1,8 +1,11 @@
 .header--first-row
   h1   = data.strings.compare.configure_menu.header
   .header--first-row__icons
-    button.i.fa.fa-times.fa-2x
-    button.i.fa.fa-check.fa-2x
+    button.i.fa.fa-times.fa-2x 
+    button.i.fa.fa-check.fa-2x(
+      ng-controller="HeaderCtrl as headerCtrl"
+      ng-click="headerCtrl.toggleConfigure()"
+      )  
 .header--second-row
   h2   = data.strings.compare.configure_menu.you_can
   .header--second-row__text-line
@@ -10,11 +13,11 @@
   .header--second-row__text-line
     p  = data.strings.compare.configure_menu.scale_it
   .header--second-row__wrapper
-    button: .header--second-row__wrapper--field.orientation-field(
-      ng-click="normalCtrl.toggleVertical()"
-      ng-class="{'active' : normalCtrl.isVertical()}"    
+    button.header--second-row__wrapper--field.orientation-field(
+      ng-click="configureCtrl.toggleVertical()"
+      ng-class="{'active' : configureCtrl.isVertical()}"    
       ) = data.strings.compare.configure_menu.orientation.vertical
-    button: .header--second-row__wrapper--field.orientation-field(
-      ng-click="normalCtrl.toggleHorizontal()"
-      ng-class="{'active' : normalCtrl.isHorizontal()}"
+    button.header--second-row__wrapper--field.orientation-field(
+      ng-click="configureCtrl.toggleHorizontal()"
+      ng-class="{'active' : configureCtrl.isHorizontal()}"
       ) = data.strings.compare.configure_menu.orientation.horizontal
