@@ -2,25 +2,21 @@ class ConfigureMenuCtrl
 
   constructor: (@ConfigureMenuValues) ->
 
-  isVertical: ->  @ConfigureMenuValues.isVertical
+  isVertical:       ->  @ConfigureMenuValues.isVertical
 
-  isHorizontal: -> @ConfigureMenuValues.isHorizontal
+  isHorizontal:     -> @ConfigureMenuValues.isHorizontal
 
-  toggleVertical: (@event) ->
+  toggleVertical:   ->
     @ConfigureMenuValues.isVertical     = true
     @ConfigureMenuValues.isHorizontal   = false
-    @ConfigureMenuValues.orientation    = 'height'
-    @ConfigureMenuValues.mouseDirection = Math.floor(event.offsetY)
+    @ConfigureMenuValues.mouseDirection = 'Y'
 
-  toggleHorizontal: (@event) ->
+  toggleHorizontal: ->
     @ConfigureMenuValues.isHorizontal   = true
     @ConfigureMenuValues.isVertical     = false
-    @ConfigureMenuValues.orientation    = 'width'
-    @ConfigureMenuValues.mouseDirection = Math.floor(event.offsetX)
+    @ConfigureMenuValues.mouseDirection = 'X'
 
-  orientation: -> @ConfigureMenuValues.orientation
-
-  mouseDirection: -> @ConfigureMenuValues.mouseDirection
+  mouseDirection:   -> @ConfigureMenuValues.mouseDirection
 
 angular
   .module 'Compareit'
