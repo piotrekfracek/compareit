@@ -9,15 +9,18 @@ angular.module('Compareit').directive 'imageCompare', ->
       offY = Math.floor(e.offsetY)
       offX = Math.floor(e.offsetX)
 
-      if ctrl.mouseDirection() is 'Y'
-        imageFront.css 'height': "#{offY}px"
-        element.mouseleave (e) ->
-          imageFront.css 'height': "100%"
+      if ctrl.isCompareEnabled()
 
-      else
-        imageFront.css 'width': "#{offX}px"
-        element.mouseleave (e) ->
-          imageFront.css 'width': "100%"
+        if ctrl.mouseDirection() is 'Y'
+          imageFront.css 'height': "#{offY}px"
+          # element.mouseleave (e) ->
+          #   imageFront.css 'height': "100%"
+
+        else
+          imageFront.css 'width': "#{offX}px"
+          # element.mouseleave (e) ->
+          #   imageFront.css 'width': "100%"
+
     # $(document).keypress (e) ->
     #   if e.which is 83 or 13
           # element.mousedown ->

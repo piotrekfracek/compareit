@@ -2,9 +2,11 @@ class ConfigureMenuCtrl
 
   constructor: (@ConfigureMenuValues) ->
 
-  isVertical:       ->  @ConfigureMenuValues.isVertical
+  isVertical:       -> @ConfigureMenuValues.isVertical
 
   isHorizontal:     -> @ConfigureMenuValues.isHorizontal
+
+  isCompareEnabled: -> @ConfigureMenuValues.isCompareEnabled
 
   toggleVertical:   ->
     @ConfigureMenuValues.isVertical     = true
