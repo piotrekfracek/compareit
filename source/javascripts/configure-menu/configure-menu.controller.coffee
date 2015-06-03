@@ -1,25 +1,15 @@
 class ConfigureMenuCtrl
 
-  constructor: (@ConfigureMenuValues) ->
+  constructor: (@ConfigureMenuService) ->
 
-  isVertical:       -> @ConfigureMenuValues.isVertical
+  isVertical:       -> @ConfigureMenuService.isVertical()
+  isHorizontal:     -> @ConfigureMenuService.isHorizontal()
 
-  isHorizontal:     -> @ConfigureMenuValues.isHorizontal
+  toggleVertical:   -> @ConfigureMenuService.setOrientation 'vertical'
+  toggleHorizontal: -> @ConfigureMenuService.setOrientation 'horizontal'
 
-  isCompareEnabled: -> @ConfigureMenuValues.isCompareEnabled
-
-  toggleVertical:   ->
-    @ConfigureMenuValues.isVertical     = true
-    @ConfigureMenuValues.isHorizontal   = false
-    @ConfigureMenuValues.mouseDirection = 'Y'
-
-  toggleHorizontal: ->
-    @ConfigureMenuValues.isHorizontal   = true
-    @ConfigureMenuValues.isVertical     = false
-    @ConfigureMenuValues.mouseDirection = 'X'
-
-  mouseDirection:   -> @ConfigureMenuValues.mouseDirection
+  isCompareEnabled: -> @ConfigureMenuService.isCompareEnabled()
 
 angular
   .module 'Compareit'
-  .controller 'ConfigureMenuCtrl', ['ConfigureMenuValues', ConfigureMenuCtrl]
+  .controller 'ConfigureMenuCtrl', ['ConfigureMenuService', ConfigureMenuCtrl]

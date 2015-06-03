@@ -1,7 +1,5 @@
 ConfigureMenuValues =
-  isVertical:       true
-  isHorizontal:     false
+  orientation:      'vertical'
   isCompareEnabled: true
-  mouseDirection:   'Y'
 
 angular.module('Compareit').value 'ConfigureMenuValues', ConfigureMenuValues

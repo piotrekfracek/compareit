@@ -1,13 +1,14 @@
 class HeaderCtrl
 
-  constructor: (@HeaderMenuValues, @ConfigureMenuValues) ->
+  constructor: (@HeaderValues, @HeaderService) ->
+    @openConfigure()
 
-  isConfigureVisible: -> @HeaderMenuValues.isConfigureVisible
+  isConfigureVisible: -> @HeaderValues.isConfigureVisible
 
-  toggleConfigure:    ->
-    @HeaderMenuValues.isConfigureVisible = !@HeaderMenuValues.isConfigureVisible
-    @ConfigureMenuValues.isCompareEnabled  = !@ConfigureMenuValues.isCompareEnabled
+  openConfigure:  -> @HeaderService.setConfigureVisibility true
+  closeConfigure: -> @HeaderService.setConfigureVisibility false
+
 
 angular
   .module 'Compareit'
-  .controller 'HeaderCtrl', ['HeaderValues', 'ConfigureMenuValues', HeaderCtrl]
+  .controller 'HeaderCtrl', ['HeaderValues', 'HeaderService', HeaderCtrl]
