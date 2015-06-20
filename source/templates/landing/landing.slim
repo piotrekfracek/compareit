@@ -1,2 +1,18 @@
-h1 Landing page
-a href="/compare" =data.strings.landing.compare_button
+.landing ng-controller="ImagesFormCtrl as imagesCtrl"
+  h1 Landing page
+  form ng-submit="imagesCtrl.imagesFormSubmit()" novalidate="" name="imagesForm"
+    .input-container
+      input(
+        name="firstImg"
+        type="text"
+        ng-model="firstImageUrl"
+      )
+      input(
+        name="secondImg"
+        type="text"
+        ng-model="secondImageUrl"
+      )
+      input(
+        type="submit"
+      )
+  a href="/compare" = data.strings.landing.compare_button
