@@ -5,8 +5,6 @@ class ImageCompare
     @height = 0
     @object = @createImage @url
 
-    console.log @
-
   createImage: (url) ->
     image = new Image()
     image.src = url

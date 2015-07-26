@@ -1,11 +1,14 @@
 class ImagesFormCtrl
 
-  constructor: (@ImagesFormService) ->
+  constructor: (@ImagesFormService, @$scope) ->
 
   loadImages:       -> @ImagesFormService.loadImages()
 
-  imagesFormSubmit: -> @ImagesFormService.imagesFormSubmit()
+  imagesFormSubmit: ->
+    @ImagesFormService.imagesFormSubmit
+      firstImage:  @$scope.firstImageUrl
+      secondImage: @$scope.secondImageUrl
 
 angular
   .module 'Compareit'
-  .controller 'ImagesFormCtrl', ['ImagesFormService', ImagesFormCtrl]
+  .controller 'ImagesFormCtrl', ['ImagesFormService', '$scope', ImagesFormCtrl]

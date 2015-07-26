@@ -1,18 +1,18 @@
 class ImagesFormService
 
-  constructor: (@$scope, @ImagesFormValues, @$state) ->
+  constructor: (@ImagesFormValues, @$state) ->
 
-  loadImages: ->
-    @ImagesFormValues.firstImage  = new ImageCompare url: firstImage
-    @ImagesFormValues.secondImage = new ImageCompare url: secondImage
+  loadImages: ({@firstImage, @secondImage}) ->
+    @ImagesFormValues.firstImage  = new ImageCompare url: @firstImage
+    @ImagesFormValues.secondImage = new ImageCompare url: @secondImage
 
-  imagesFormSubmit: (@$scope) ->
+  imagesFormSubmit: ({@firstImage, @secondImage}) ->
     @loadImages
-      firstImage:  @$scope.firstImageUrl
-      secondImage: @$scope.secondImageUrl
+      firstImage:  @firstImage
+      secondImage: @secondImage
     @$state.go 'main.compare'
 
-createImagesFormService = (ImagesFormValues) ->
-  new ImagesFormService ImagesFormValues
+createImagesFormService = (ImagesFormValues, $state) ->
+  new ImagesFormService ImagesFormValues, $state
 
-angular.module('Compareit').factory 'ImagesFormService', ['ImagesFormValues', createImagesFormService]
+angular.module('Compareit').factory 'ImagesFormService', ['ImagesFormValues', '$state', createImagesFormService]
