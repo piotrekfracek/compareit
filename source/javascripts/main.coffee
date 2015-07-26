@@ -22,7 +22,7 @@ provideStates = ($stateProvider) ->
       url: '/'
       templateUrl: '/templates/landing/landing.html'
     .state 'main.compare',
-      url: '/compare',
+      url: '/compare/{image1}/{x1}/{y1}/{scale1}/{image2}/{x2}/{y2}/{scale2}/{orientation}',
       templateUrl: '/templates/compare/compare.html'
 
 configFunction = ($stateProvider, $locationProvider, $urlRouterProvider) ->

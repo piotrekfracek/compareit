@@ -10,8 +10,16 @@ class ImagesFormService
     @$q.all [firstImagePromise, secondImagePromise]
 
   imagesFormSubmit: ({@firstImage, @secondImage}) ->
-    @loadImages(firstImage: @firstImage, secondImage: @secondImage).then =>
-      @$state.go 'main.compare'
+    @$state.go 'main.compare',
+      image1: 'test'
+      image2: 'test2'
+      orientation: 'h'
+      x1: '-100'
+      y1: '50'
+      scale1: '1,4'
+      x2: '-100'
+      y2: '50'
+      scale2: '1,4'
 
 createImagesFormService = (ImagesFormValues, $state, $q) ->
   new ImagesFormService ImagesFormValues, $state, $q
