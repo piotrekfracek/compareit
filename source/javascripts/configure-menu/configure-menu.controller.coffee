@@ -8,6 +8,8 @@ class ConfigureMenuCtrl
   toggleVertical:   -> @ConfigureMenuService.setOrientation 'vertical'
   toggleHorizontal: -> @ConfigureMenuService.setOrientation 'horizontal'
 
+  restoreConfiguration: -> @ConfigureMenuService.restoreConfiguration()
+
 angular
   .module 'Compareit'
   .controller 'ConfigureMenuCtrl', ['ConfigureMenuService', ConfigureMenuCtrl]

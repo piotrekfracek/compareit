@@ -1,8 +1,8 @@
 .header--first-row
   h1   = data.strings.compare.configure_menu.header
   .header--first-row__icons
-    button.i.fa.fa-times.fa-2x
-    button.i.fa.fa-check.fa-2x ng-click="compareCtrl.toggleCompare()"
+    button.i.fa.fa-times.fa-2x ng-click="compareCtrl.enableCompareAndRestore()"
+    button.i.fa.fa-check.fa-2x ng-click="compareCtrl.enableCompare()"
 .header--second-row
   h2   = data.strings.compare.configure_menu.you_can
   .header--second-row__text-line

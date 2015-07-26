@@ -4,8 +4,10 @@ class CompareCtrl
 
   getOrientation:   -> @CompareService.getOrientation()
 
-  toggleCompare:    -> @CompareService.toggleCompare()
-  isCompareEnabled: -> @CompareService.isCompareEnabled()
+  enableCompare:           -> @CompareService.enableCompare()
+  enableCompareAndRestore: -> @CompareService.enableCompareAndRestore()
+  disableCompare:          -> @CompareService.disableCompare()
+  isCompareEnabled:        -> @CompareService.isCompareEnabled()
 
 angular
   .module 'Compareit'

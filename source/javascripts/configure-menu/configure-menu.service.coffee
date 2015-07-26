@@ -1,10 +1,16 @@
 class ConfigureMenuService
   constructor: (@ConfigureMenuValues) ->
 
-  isVertical:   -> @ConfigureMenuValues.orientation is 'vertical'
-  isHorizontal: -> @ConfigureMenuValues.orientation is 'horizontal'
+  isVertical:   -> @ConfigureMenuValues.configuration.orientation is 'vertical'
+  isHorizontal: -> @ConfigureMenuValues.configuration.orientation is 'horizontal'
 
-  setOrientation: (orientation) -> @ConfigureMenuValues.orientation = orientation
+  setOrientation: (orientation) -> @ConfigureMenuValues.configuration.orientation = orientation
+
+  cloneConfiguration: ->
+    @ConfigureMenuValues.cloneConfiguration = Object.clone(@ConfigureMenuValues.configuration, true)
+
+  restoreConfiguration: ->
+    @ConfigureMenuValues.configuration = @ConfigureMenuValues.cloneConfiguration
 
 createConfigureMenuService = (ConfigureMenuValues) ->
   new ConfigureMenuService ConfigureMenuValues
