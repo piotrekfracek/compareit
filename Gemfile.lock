@@ -170,3 +170,6 @@ DEPENDENCIES
   slim
   tzinfo-data
   wdm
+
+BUNDLED WITH
+   1.10.3

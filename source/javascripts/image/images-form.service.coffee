@@ -1,6 +1,6 @@
 class ImagesFormService
 
-  constructor: (@ImagesFormValues, @$state, @$q) ->
+  constructor: (@ImagesFormValues, @CompareService, @$state, @$q) ->
 
   loadImages: ({@firstImage, @secondImage}) ->
     firstImagePromise  = ImageCompare.create(url: @firstImage,  id: 0)
@@ -10,6 +10,7 @@ class ImagesFormService
     @$q.all [firstImagePromise, secondImagePromise]
 
   imagesFormSubmit: ({@firstImage, @secondImage}) ->
+    @CompareService.toggleCompare()
     @$state.go 'main.compare',
       image1: 'test'
       image2: 'test2'
@@ -21,7 +22,7 @@ class ImagesFormService
       y2: '50'
       scale2: '1,4'
 
-createImagesFormService = (ImagesFormValues, $state, $q) ->
-  new ImagesFormService ImagesFormValues, $state, $q
+createImagesFormService = (ImagesFormValues, CompareService, $state, $q) ->
+  new ImagesFormService ImagesFormValues, CompareService, $state, $q
 
-angular.module('Compareit').factory 'ImagesFormService', ['ImagesFormValues', '$state', '$q', createImagesFormService]
+angular.module('Compareit').factory 'ImagesFormService', ['ImagesFormValues', 'CompareService', '$state', '$q', createImagesFormService]

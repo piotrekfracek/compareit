@@ -1,10 +1,12 @@
 class CompareService
-  constructor: (@CompareValues) ->
+  constructor: (@CompareValues, @ConfigureMenuValues) ->
+
+  getOrientation:   -> @ConfigureMenuValues.orientation
 
   toggleCompare:    -> @CompareValues.isCompareEnabled = !@CompareValues.isCompareEnabled
   isCompareEnabled: -> @CompareValues.isCompareEnabled
 
-createCompareService = (CompareValues) ->
-  new CompareService CompareValues
+createCompareService = (CompareValues, ConfigureMenuValues) ->
+  new CompareService CompareValues, ConfigureMenuValues
 
-angular.module('Compareit').factory 'CompareService', ['CompareValues', createCompareService]
+angular.module('Compareit').factory 'CompareService', ['CompareValues', 'ConfigureMenuValues', createCompareService]
