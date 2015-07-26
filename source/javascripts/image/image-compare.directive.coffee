@@ -1,7 +1,9 @@
-angular.module('Compareit').directive 'imageCompare', [ 'CompareService', 'ConfigureMenuService', (CompareService, ConfigureMenuService) ->
+angular.module('Compareit').directive 'imageCompare', [ 'ConfigureMenuService', (ConfigureMenuService) ->
 
   scope:
     imageCompareShowDimness: '='
+    isCompareEnabled:        '='
+    imageOrientation:        '='
 
   templateUrl: '/templates/compare/comparator.html'
 
@@ -9,21 +11,40 @@ angular.module('Compareit').directive 'imageCompare', [ 'CompareService', 'Confi
 
     imageFront = $(attrs.imageCompareSelector)
 
+    setCssForComparation = (offX, offY) ->
+      if scope.imageOrientation is 'vertical'
+        imageFront.css
+          height: "#{offY}px"
+          width:  "100%"
+      else
+        imageFront.css
+          width:  "#{offX}px"
+          height: "100%"
+
+    setCssForConfiguration = ->
+      if scope.imageOrientation is 'vertical'
+        imageFront.css
+          height: "50%"
+          width: "100%"
+      else
+        imageFront.css
+          width: "50%"
+          height: "100%"
+
     element.mousemove (e) ->
       offY = Math.floor(e.offsetY)
       offX = Math.floor(e.offsetX)
+      setCssForComparation(offX, offY) if scope.isCompareEnabled
 
-      if CompareService.isCompareEnabled()
+    scope.$watch 'isCompareEnabled', (isCompareEnabled) =>
+      setCssForConfiguration() unless isCompareEnabled
 
-        if ConfigureMenuService.isVertical()
-          imageFront.css
-            height: "#{offY}px"
-            width: "100%"
+    scope.$watch 'imageOrientation', (imageOrientation) =>
+      console.log imageOrientation
+      setCssForConfiguration() unless scope.isCompareEnabled
 
-        else
-          imageFront.css
-            width: "#{offX}px"
-            height: "100%"
+    setCssForConfiguration()
+
     ###
      $(document).keypress (e) ->
        if e.which is 83 or 13

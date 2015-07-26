@@ -1,4 +1,4 @@
 CompareValues =
-  isCompareEnabled: false
+  isCompareEnabled: true
 
 angular.module('Compareit').value 'CompareValues', CompareValues
