@@ -1,6 +1,6 @@
 class CompareCtrl
 
-  constructor: (@CompareValues, @CompareService) ->
+  constructor: (@CompareValues, @CompareService, @ImagesService) ->
 
   getOrientation:   -> @CompareService.getOrientation()
 
@@ -9,6 +9,9 @@ class CompareCtrl
   disableCompare:          -> @CompareService.disableCompare()
   isCompareEnabled:        -> @CompareService.isCompareEnabled()
 
+  getFirstImageUrl:        -> @ImagesService.getFirstImageUrl()
+  getSecondImageUrl:       -> @ImagesService.getSecondImageUrl()
+
 angular
   .module 'Compareit'
-  .controller 'CompareCtrl', ['CompareValues', 'CompareService', CompareCtrl]
+  .controller 'CompareCtrl', ['CompareValues', 'CompareService', 'ImagesService', CompareCtrl]

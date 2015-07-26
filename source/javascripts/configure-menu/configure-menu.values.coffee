@@ -1,6 +1,6 @@
 ConfigureMenuValues =
   configuration:
-    orientation: 'vertical'
+    orientation: 'horizontal'
   tempConfiguration: {}
 
 angular.module('Compareit').value 'ConfigureMenuValues', ConfigureMenuValues
