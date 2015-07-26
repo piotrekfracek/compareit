@@ -1,24 +1,29 @@
-angular.module('Compareit').directive 'imageCompare', [ 'ConfigureMenuService', (ConfigureMenuService) ->
+angular.module('Compareit').directive 'imageCompare', [ 'CompareService', 'ConfigureMenuService', (CompareService, ConfigureMenuService) ->
+
+  scope:
+    imageCompareShowDimness: '='
+
+  templateUrl: '/templates/compare/comparator.html'
 
   link: (scope, element, attrs) ->
-    
+
     imageFront = $(attrs.imageCompareSelector)
 
     element.mousemove (e) ->
       offY = Math.floor(e.offsetY)
       offX = Math.floor(e.offsetX)
 
-      if ConfigureMenuService.isCompareEnabled()
+      if CompareService.isCompareEnabled()
 
         if ConfigureMenuService.isVertical()
-          imageFront.css 'height': "#{offY}px"
-          # element.mouseleave (e) ->
-          #   imageFront.css 'height': "100%"
+          imageFront.css
+            height: "#{offY}px"
+            width: "100%"
 
         else
-          imageFront.css 'width': "#{offX}px"
-          # element.mouseleave (e) ->
-          #   imageFront.css 'width': "100%"
+          imageFront.css
+            width: "#{offX}px"
+            height: "100%"
     ###
      $(document).keypress (e) ->
        if e.which is 83 or 13

@@ -1,5 +1,4 @@
 ConfigureMenuValues =
-  orientation:      'vertical'
-  isCompareEnabled: true
+  orientation: 'vertical'
 
 angular.module('Compareit').value 'ConfigureMenuValues', ConfigureMenuValues
