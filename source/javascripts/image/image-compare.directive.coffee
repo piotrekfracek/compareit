@@ -34,7 +34,6 @@ angular.module('Compareit').directive 'imageCompare', [ 'ConfigureMenuService', 
       imageCompareCtrl.setCssForConfiguration(imageFront) unless isCompareEnabled
 
     scope.$watch 'imageOrientation', (imageOrientation) =>
-      console.log imageOrientation
       imageCompareCtrl.setCssForConfiguration(imageFront) unless scope.isCompareEnabled
 
     imageCompareCtrl.setCssForConfiguration(imageFront)

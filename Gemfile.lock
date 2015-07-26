@@ -108,6 +108,7 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rails-assets-angular (1.4.3)
+    rails-assets-angular-tooltips (0.1.18)
     rails-assets-angular-ui-router (0.2.15)
       rails-assets-angular (>= 1.0.8)
     rails-assets-blueimp-load-image (1.13.1)
@@ -162,6 +163,7 @@ DEPENDENCIES
   middleman-smusher
   rack-rewrite
   rails-assets-angular!
+  rails-assets-angular-tooltips!
   rails-assets-angular-ui-router!
   rails-assets-blueimp-load-image!
   rails-assets-jquery!
