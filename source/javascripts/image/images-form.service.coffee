@@ -1,18 +1,19 @@
 class ImagesFormService
 
-  constructor: (@ImagesFormValues, @$state) ->
+  constructor: (@ImagesFormValues, @$state, @$q) ->
 
   loadImages: ({@firstImage, @secondImage}) ->
-    @ImagesFormValues.firstImage  = new ImageCompare url: @firstImage,  id: 0
-    @ImagesFormValues.secondImage = new ImageCompare url: @secondImage, id: 1
+    firstImagePromise  = ImageCompare.create(url: @firstImage,  id: 0)
+    firstImagePromise.then  (imageCompareObject) -> @ImagesFormValues.firstImage  = imageCompareObject
+    secondImagePromise = ImageCompare.create(url: @secondImage, id: 1)
+    secondImagePromise.then (imageCompareObject) -> @ImagesFormValues.secondImage = imageCompareObject
+    @$q.all [firstImagePromise, secondImagePromise]
 
   imagesFormSubmit: ({@firstImage, @secondImage}) ->
-    @loadImages
-      firstImage:  @firstImage
-      secondImage: @secondImage
-    @$state.go 'main.compare'
+    @loadImages(firstImage: @firstImage, secondImage: @secondImage).then =>
+      @$state.go 'main.compare'
 
-createImagesFormService = (ImagesFormValues, $state) ->
-  new ImagesFormService ImagesFormValues, $state
+createImagesFormService = (ImagesFormValues, $state, $q) ->
+  new ImagesFormService ImagesFormValues, $state, $q
 
-angular.module('Compareit').factory 'ImagesFormService', ['ImagesFormValues', '$state', createImagesFormService]
+angular.module('Compareit').factory 'ImagesFormService', ['ImagesFormValues', '$state', '$q', createImagesFormService]

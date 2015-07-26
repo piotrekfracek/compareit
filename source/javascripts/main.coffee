@@ -30,3 +30,9 @@ configFunction = ($stateProvider, $locationProvider, $urlRouterProvider) ->
   provideStates $stateProvider
 
 app.config ['$stateProvider', '$locationProvider', '$urlRouterProvider', configFunction]
+
+runFunction = ($q) ->
+  app.global =
+    $q: $q
+
+app.run ['$q', runFunction]

@@ -3,20 +3,28 @@ class ImageCompare
   constructor: ({@url, @id}) ->
     @width  = undefined
     @height = undefined
-    
-    @object = @createImage @url
-    console.log @
+    @object = undefined
 
-  createImage: (url) ->
-    image = loadImage url, (img) =>
+  _createImage: (url) ->
+    deferred = app.global.$q.defer()
+    loadImage url, (img) =>
       if img.type is "error"
-        @onCreateImageError url, img
+        @_onCreateImageError url, img
+        deferred.reject(img)
       else
+        @object = img
         @width  = img.width
         @height = img.height
-    image
+        deferred.resolve(@)
+    deferred.promise
 
-  onCreateImageError: (url, imageObject) ->
+  _onCreateImageError: (url, imageObject) ->
     console.log "Error loading image " + url
 
   appendTo: (to) -> $(@object).appendTo to
+
+
+  @create: ({@url, @id}) ->
+    imageCompareObject = new @ url: @url, id: @id
+    promise = imageCompareObject._createImage(@url)
+    promise
