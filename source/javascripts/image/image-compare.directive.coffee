@@ -6,55 +6,37 @@ angular.module('Compareit').directive 'imageCompare', [ 'ConfigureMenuService', 
     imageOrientation:        '='
 
   templateUrl: '/templates/compare/comparator.html'
+  controller: 'ImageCompareCtrl'
 
-  link: (scope, element, attrs) ->
+  link: (scope, element, attrs, imageCompareCtrl) ->
 
     imageFront = $(attrs.imageCompareSelector)
 
-    setCssForComparation = (offX, offY) ->
-      if scope.imageOrientation is 'vertical'
-        imageFront.css
-          height: "#{offY}px"
-          width:  "100%"
-      else
-        imageFront.css
-          width:  "#{offX}px"
-          height: "100%"
-
-    setCssForConfiguration = ->
-      if scope.imageOrientation is 'vertical'
-        imageFront.css
-          height: "50%"
-          width: "100%"
-      else
-        imageFront.css
-          width: "50%"
-          height: "100%"
+    # isImageFrontClicked = false
+    # mousedownOffsetY = undefined
+    # mousedownOffsetX = undefined
+    # element
+    #   .mousedown (e)->
+    #     isImageFrontClicked = true
+    #     mousedownOffsetY = Math.floor(e.offsetY)
+    #     mousedownOffsetX = Math.floor(e.offsetX)
+    #   .mousemove ->
+    #     if isImageFrontClicked
+    #       console.log mousedownOffsetX
+    #   .mouseup ->
+    #     isImageFrontClicked = false
 
     element.mousemove (e) ->
-      offY = Math.floor(e.offsetY)
-      offX = Math.floor(e.offsetX)
-      setCssForComparation(offX, offY) if scope.isCompareEnabled
+      {x, y} = imageCompareCtrl.getMousePosition(e)
+      imageCompareCtrl.setCssForComparation(imageFront, x, y) if scope.isCompareEnabled
 
     scope.$watch 'isCompareEnabled', (isCompareEnabled) =>
-      setCssForConfiguration() unless isCompareEnabled
+      imageCompareCtrl.setCssForConfiguration(imageFront) unless isCompareEnabled
 
     scope.$watch 'imageOrientation', (imageOrientation) =>
       console.log imageOrientation
-      setCssForConfiguration() unless scope.isCompareEnabled
+      imageCompareCtrl.setCssForConfiguration(imageFront) unless scope.isCompareEnabled
 
-    setCssForConfiguration()
+    imageCompareCtrl.setCssForConfiguration(imageFront)
 
-    ###
-     $(document).keypress (e) ->
-       if e.which is 83 or 13
-           element.mousedown ->
-             $(window).mousemove (event) ->
-               console.log "#{Math.floor(event.offsetY)}px"
-               imageFront.css 'height': "#{Math.floor(event.offsetY)}px",
-                              'width': "#{Math.floor(event.offsetX)}px"
-           element.mouseup ->
-             $(window).unbind "mousemove"
-           console.log 'pushed!'
-     ###
 ]
