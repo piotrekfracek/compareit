@@ -3,6 +3,7 @@ class ConfigureMenuService
 
   isVertical:   -> @ConfigureMenuValues.configuration.orientation is 'vertical'
   isHorizontal: -> @ConfigureMenuValues.configuration.orientation is 'horizontal'
+  getOrientation: -> @ConfigureMenuValues.configuration.orientation
 
   setOrientation: (orientation) -> @ConfigureMenuValues.configuration.orientation = orientation
 
