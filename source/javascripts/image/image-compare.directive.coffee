@@ -1,10 +1,11 @@
 angular.module('Compareit').directive 'imageCompare', [ 'ConfigureMenuService', '$document', (ConfigureMenuService, $document) ->
 
   scope:
-    isCompareEnabled: '='
-    imageOrientation: '='
-    firstImage: '='
-    secondImage: '='
+    isCompareEnabled:   '='
+    imageOrientation:   '='
+    firstImage:         '='
+    secondImage:        '='
+    getDimensionsRatio: '='
 
   templateUrl: '/templates/compare/comparator.html'
   controller: 'ImageCompareCtrl'
@@ -13,7 +14,7 @@ angular.module('Compareit').directive 'imageCompare', [ 'ConfigureMenuService', 
 
     imageFront = $(attrs.imageCompareSelector)
 
-    element.on 'mousedown', (eDown) -> element.on 'mousemove', {eDown: eDown, element: imageFront}, imageCompareCtrl.onDrag
+    element.on 'mousedown', (eDown) -> if !scope.isCompareEnabled then element.on 'mousemove', {eDown: eDown, element: imageFront}, imageCompareCtrl.onDrag
     element.on 'mouseup',           -> element.off 'mousemove', imageCompareCtrl.onDrag
 
     element.mousemove (e) ->

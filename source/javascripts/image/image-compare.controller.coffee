@@ -2,6 +2,21 @@ class ImageCompareCtrl
 
   constructor: (@$scope) ->
 
+  getMousePosition: (e) ->
+    x: Math.floor(e.offsetX)
+    y: Math.floor(e.offsetY)
+
+  calculatePositionDiff: (pos1, pos2) ->
+    x: pos2.x - pos1.x
+    y: pos2.y - pos1.y
+
+  getDimensionsRatio: ->
+    maxWidth = Math.max(@$scope.firstImage.width, @$scope.secondImage.width)
+    maxHeight = switch maxWidth
+      when @$scope.firstImage.width then @$scope.firstImage.height
+      when @$scope.secondImage.width then @$scope.secondImage.height
+    maxHeight / maxWidth * 100
+
   onDrag: (event) =>
     mousedownPosition = @getMousePosition event.data.eDown
     mousemovePosition = @getMousePosition event
@@ -12,14 +27,6 @@ class ImageCompareCtrl
     element.css
       backgroundPosition: "#{diff.x}px #{diff.y}px"
 
-  getMousePosition: (e) ->
-    x: Math.floor(e.offsetX)
-    y: Math.floor(e.offsetY)
-
-  calculatePositionDiff: (pos1, pos2) ->
-    x: pos2.x - pos1.x
-    y: pos2.y - pos1.y
-
   setCssForComparation: (image, offX, offY) ->
     if @$scope.imageOrientation is 'vertical'
       image.css
@@ -28,6 +35,7 @@ class ImageCompareCtrl
     else
       image.css
         width:  "#{offX}px"
+        maxWidth: "#{@$scope.firstImage.width}px"
         height: "100%"
 
   setCssForConfiguration: (image) ->
