@@ -3,7 +3,7 @@
   .header--first-row__icons
     button.i.fa.fa-plus.fa-2x(
       tooltips="" 
-      ui-sref="main.landing"
+      ng-click="compareCtrl.backLandingWithReload()"
       tooltip-side="top" 
       tooltip-content = data.strings.compare.normal_header.create
     ) 

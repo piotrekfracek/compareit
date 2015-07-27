@@ -6,7 +6,11 @@ class DataService
       firstImage:  @firstImage
       secondImage: @secondImage
 
-  setOrientation: (orientation) -> @ConfigureMenuService.setOrientation orientation
+  setConfiguration: (newConfig) ->
+    @ConfigureMenuService.setConfiguration newConfig
+
+  cloneDefaultConfiguration:   -> @ConfigureMenuService.cloneDefaultConfiguration()
+  restoreDefaultConfiguration: -> @ConfigureMenuService.restoreDefaultConfiguration()
 
 createDataService = (ConfigureMenuService, ImagesService) ->
   new DataService(ConfigureMenuService, ImagesService)

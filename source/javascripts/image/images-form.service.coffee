@@ -1,21 +1,15 @@
 class ImagesFormService
 
-  constructor: (@ConfigureMenuService, @CompareService, @$state, @UrlService) ->
+  constructor: (@CompareService, @UrlService) ->
 
   imagesFormSubmit: ({@firstImage, @secondImage}) ->
     @CompareService.disableCompare()
-    @$state.go 'main.compare',
-      image1:      @UrlService.escapeImageUrl @firstImage
-      image2:      @UrlService.escapeImageUrl @secondImage
-      orientation: @UrlService.escapeOrientation @ConfigureMenuService.getOrientation()
-      x1: '-100'
-      y1: '50'
-      scale1: '1,4'
-      x2: '-100'
-      y2: '50'
-      scale2: '1,4'
+    @UrlService.updateUrl
+      image1:      @firstImage
+      image2:      @secondImage
+    , true
 
-createImagesFormService = (ConfigureMenuService, CompareService, $state, UrlService) ->
-  new ImagesFormService ConfigureMenuService, CompareService, $state, UrlService
+createImagesFormService = (CompareService, UrlService) ->
+  new ImagesFormService CompareService, UrlService
 
-angular.module('Compareit').factory 'ImagesFormService', ['ConfigureMenuService', 'CompareService', '$state', 'UrlService', createImagesFormService]
+angular.module('Compareit').factory 'ImagesFormService', ['CompareService', 'UrlService', createImagesFormService]
