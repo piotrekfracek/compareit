@@ -3,6 +3,8 @@ angular.module('Compareit').directive 'imageCompare', [ 'ConfigureMenuService', 
   scope:
     isCompareEnabled: '='
     imageOrientation: '='
+    firstImage: '='
+    secondImage: '='
 
   templateUrl: '/templates/compare/comparator.html'
   controller: 'ImageCompareCtrl'

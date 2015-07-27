@@ -12,6 +12,9 @@ class CompareCtrl
   getFirstImageUrl:        -> @ImagesService.getFirstImageUrl()
   getSecondImageUrl:       -> @ImagesService.getSecondImageUrl()
 
+  getFirstImage:           -> @ImagesService.getFirstImage()
+  getSecondImage:          -> @ImagesService.getSecondImage()
+
 angular
   .module 'Compareit'
   .controller 'CompareCtrl', ['CompareValues', 'CompareService', 'ImagesService', CompareCtrl]

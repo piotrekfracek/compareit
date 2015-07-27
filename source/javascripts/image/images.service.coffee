@@ -12,6 +12,9 @@ class ImagesService
   getFirstImageUrl:  -> @ImagesValues.firstImage?.url
   getSecondImageUrl: -> @ImagesValues.secondImage?.url
 
+  getFirstImage:  -> @ImagesValues.firstImage
+  getSecondImage: -> @ImagesValues.secondImage
+
 createImagesService = (ImagesValues, $q) ->
   new ImagesService ImagesValues, $q
 
