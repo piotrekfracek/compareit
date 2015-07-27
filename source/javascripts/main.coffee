@@ -5,6 +5,7 @@
 
 app = angular.module 'Compareit', [
   'ui.router'
+  '720kb.tooltips'
 ]
 
 configureHtml5mode = (locationProvider, routerProvider) ->

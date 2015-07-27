@@ -31,5 +31,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular'
   gem 'rails-assets-angular-ui-router'
   gem 'rails-assets-blueimp-load-image'
+  gem 'rails-assets-angular-tooltips'
 
 end

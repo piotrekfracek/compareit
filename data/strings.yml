@@ -3,6 +3,8 @@ landing:
 compare:
   configure_menu:
     header:   Configure comparison
+    cancel:   Cancel
+    save:     Save
     you_can:  'You can:'
     move_it:  Drag picture to move it
     scale_it: Drag picture, with pushed 'S', to scale it
@@ -10,12 +12,14 @@ compare:
       vertical:   Vertical
       horizontal: Horizontal
   normal_header:
-    logo: Compareit Logo
-    details: 'Details:'
+    logo:      Compareit Logo
+    create:    Create new
+    edit:      Edit
+    details:   'Details:'
     picture_1: Picture 1
     link_1: ': http://pastedurl.to/first_pic.png'
     picture_2: Picture 2
     link_2: ': http://pastedurl.to/second_pic.png'
-    date: Date
-    date_num: ': 21-06-2015'
-    link_3: 'http://domain.com/link'
+    date:      Date
+    date_num:  ': 21-06-2015'
+    link_3:    'http://domain.com/link'
