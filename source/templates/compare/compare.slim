@@ -13,7 +13,7 @@
     .image-container(
       image-compare=""
       image-compare-selector=".image-container--front"
-      image-compare-show-dimness="!compareCtrl.isCompareEnabled()"
-      is-compare-enabled="compareCtrl.isCompareEnabled()"
       image-orientation="compareCtrl.getOrientation()"
+      is-compare-enabled="compareCtrl.isCompareEnabled()"
+      ng-class="{'image-container__dimness' : !compareCtrl.isCompareEnabled()}"
     )

@@ -4,31 +4,29 @@
   padding-top:   57.14%
   margin-bottom: 10vw
   position:      relative
-  +box-shadow(10px 10px 15px 0 rgba(0,0,0,0.35))
+  +box-shadow    (10px 10px 15px 0 rgba(0,0,0,0.35))
 
 .image-container--front,
-.image-container--back,
-.image-container--dimness
-  width: 100%
-  height: 100%
-  position: absolute
-  top: 0
-  left: 0
-  background-size: cover
+.image-container--back
+  width:            100%
+  height:           100%
+  position:         absolute
+  top:              0
+  left:             0
+  background-size:  cover
 
 .image-container--front
-  z-index: 10
+  z-index:    10
   background:
-    image:  url(https://unsplash.imgix.net/photo-1423439793616-f2aa4356b37e?fit=crop&fm=jpg&h=600&q=75&w=1050)
-    repeat: no-repeat
+    image:    url(https://unsplash.imgix.net/photo-1423439793616-f2aa4356b37e?fit=crop&fm=jpg&h=600&q=75&w=1050)
+    repeat:   no-repeat
 
 .image-container--back
-  z-index: 9
+  z-index:    9
   background:
     image:    url(https://ununsplash.imgix.net/photo-1423766111988-c47a5ff6ed06?fit=crop&fm=jpg&h=600&q=75&w=1050)
     position: 50% 50%
     repeat:   no-repeat
 
-.image-container--dimness
-  z-index: 11
-  background-color: rgba(0,0,0,0.5)
+.image-container__dimness
+  opacity:    0.6

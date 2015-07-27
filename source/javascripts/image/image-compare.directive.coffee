@@ -1,9 +1,8 @@
-angular.module('Compareit').directive 'imageCompare', [ 'ConfigureMenuService', (ConfigureMenuService) ->
+angular.module('Compareit').directive 'imageCompare', [ 'ConfigureMenuService', '$document', (ConfigureMenuService, $document) ->
 
   scope:
-    imageCompareShowDimness: '='
-    isCompareEnabled:        '='
-    imageOrientation:        '='
+    isCompareEnabled: '='
+    imageOrientation: '='
 
   templateUrl: '/templates/compare/comparator.html'
   controller: 'ImageCompareCtrl'
@@ -12,19 +11,8 @@ angular.module('Compareit').directive 'imageCompare', [ 'ConfigureMenuService', 
 
     imageFront = $(attrs.imageCompareSelector)
 
-    # isImageFrontClicked = false
-    # mousedownOffsetY = undefined
-    # mousedownOffsetX = undefined
-    # element
-    #   .mousedown (e)->
-    #     isImageFrontClicked = true
-    #     mousedownOffsetY = Math.floor(e.offsetY)
-    #     mousedownOffsetX = Math.floor(e.offsetX)
-    #   .mousemove ->
-    #     if isImageFrontClicked
-    #       console.log mousedownOffsetX
-    #   .mouseup ->
-    #     isImageFrontClicked = false
+    element.on 'mousedown', (eDown) -> element.on 'mousemove', {eDown: eDown, element: imageFront}, imageCompareCtrl.onDrag
+    element.on 'mouseup',           -> element.off 'mousemove', imageCompareCtrl.onDrag
 
     element.mousemove (e) ->
       {x, y} = imageCompareCtrl.getMousePosition(e)

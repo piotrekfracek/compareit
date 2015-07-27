@@ -2,9 +2,23 @@ class ImageCompareCtrl
 
   constructor: (@$scope) ->
 
+  onDrag: (event) =>
+    mousedownPosition = @getMousePosition event.data.eDown
+    mousemovePosition = @getMousePosition event
+    diff = @calculatePositionDiff mousedownPosition, mousemovePosition
+    @changeBackgroundPosition(diff, event.data.element)
+
+  changeBackgroundPosition: (diff, element) ->
+    element.css
+      backgroundPosition: "#{diff.x}px #{diff.y}px"
+
   getMousePosition: (e) ->
-    y: Math.floor(e.offsetY)
     x: Math.floor(e.offsetX)
+    y: Math.floor(e.offsetY)
+
+  calculatePositionDiff: (pos1, pos2) ->
+    x: pos2.x - pos1.x
+    y: pos2.y - pos1.y
 
   setCssForComparation: (image, offX, offY) ->
     if @$scope.imageOrientation is 'vertical'
