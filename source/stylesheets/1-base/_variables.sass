@@ -13,3 +13,13 @@ $font-sans:         'Open Sans'
 
 // Element sizes
 $container-size:    88vw
+
+// Mixins
+=font($size, $weight: 300, $color: $color-lightgray, $family: $font-sans)
+  font-size:     $size
+  @if $weight
+    font-weight: $weight
+  @if $color
+    color:       $color
+  @if $family
+    font-family: $family

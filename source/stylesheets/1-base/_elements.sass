@@ -14,27 +14,14 @@ button
 a
   text-decoration: none
 
-h1, h2, h3, p
-  font-family: $font-sans
-  color: $color-lightgray
+.h1
+  +font(34px, 300, #fff)
 
-h1
-  color:     #fff
-  font:
-    size:    34px
-    weight:  300
+.h2
+  +font(18px, 700)
 
-h2
-  font:
-    size: 18px
-    weight: 700
+.h3
+  +font(16px, 700)
 
-h3
-  font:
-    size: 16px
-    weight: 700
-
-p
-  font:
-    size: 14px
-    weight: 300
+.p
+  +font(14px)

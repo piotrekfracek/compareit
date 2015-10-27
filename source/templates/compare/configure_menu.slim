@@ -1,5 +1,5 @@
 .menu--row.row_first
-  h1 = data.strings.compare.configure_menu.header
+  h1.h1 = data.strings.compare.configure_menu.header
   .menu--icons
     button.i.fa.fa-times.fa-2x(
       ng-click="compareCtrl.enableCompareAndRestore()"
@@ -15,11 +15,11 @@
     )
 .menu--row
   .menu--text-wrap
-    h2  = data.strings.compare.configure_menu.you_can
+    h2.h2 = data.strings.compare.configure_menu.you_can
     .menu--text
-      p = data.strings.compare.configure_menu.move_it
+      p.p = data.strings.compare.configure_menu.move_it
     .menu--text
-      p = data.strings.compare.configure_menu.scale_it
+      p.p = data.strings.compare.configure_menu.scale_it
   .menu--field-wrap
     button.menu--field.btn-orientation(
       ng-click="configureCtrl.toggleVertical()"

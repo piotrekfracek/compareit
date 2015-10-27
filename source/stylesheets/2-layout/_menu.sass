@@ -31,11 +31,7 @@
 
 .menu--logo
   display:  table-cell
-  color:    #fff
-  font:
-    family: $font-sans
-    size:   34px
-    weight: 700
+  +font     (34px, 700, #fff)
 
 // Second row
 .menu--text
@@ -76,10 +72,7 @@
   &.btn-orientation
     width:            150px
     line-height:      50px
-    font:
-      family: $font-sans
-      size:   18px
-      weight: 300
+    +font             (18px)
 
   &.btn-active
     background-color: $color-darkgray
