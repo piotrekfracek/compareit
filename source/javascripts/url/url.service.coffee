@@ -34,8 +34,8 @@ class UrlService
 
   updateUrl: (params, reload=false) ->
     preparedParams =
-      image1:      @escapeImageUrl params.image2         or @ImagesService.getSecondImageUrl()
-      image2:      @escapeImageUrl params.image1         or @ImagesService.getFirstImageUrl()
+      image1:      @escapeImageUrl params.image1         or @ImagesService.getFirstImageUrl()
+      image2:      @escapeImageUrl params.image2         or @ImagesService.getSecondImageUrl()
       orientation: @escapeOrientation params.orientation or @ConfigureMenuService.getOrientation()
       x1:          @escapeNumber params.x1               or @ConfigureMenuService.getX1()
       y1:          @escapeNumber params.y1               or @ConfigureMenuService.getY1()
