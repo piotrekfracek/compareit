@@ -1,6 +1,10 @@
 .landing ng-controller="ImagesFormCtrl as imagesFormCtrl"
   h1 Landing page
-  form ng-submit="imagesFormCtrl.imagesFormSubmit()" novalidate="" name="imagesForm"
+  form(
+    ng-submit="imagesFormCtrl.imagesFormSubmit()" 
+    novalidate="" 
+    name="imagesForm"
+   ) 
     .input-container
       input(
         name="firstImg"
