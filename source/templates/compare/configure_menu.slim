@@ -1,6 +1,6 @@
-.header--first-row
+.menu--row.row_first
   h1 = data.strings.compare.configure_menu.header
-  .header--first-row__icons
+  .menu--icons
     button.i.fa.fa-times.fa-2x(
       ng-click="compareCtrl.enableCompareAndRestore()"
       tooltips="" 
@@ -13,18 +13,19 @@
       tooltip-side="top"
       tooltip-content = data.strings.compare.configure_menu.save
     )
-.header--second-row
-  h2  = data.strings.compare.configure_menu.you_can
-  .header--second-row__text-line
-    p = data.strings.compare.configure_menu.move_it
-  .header--second-row__text-line
-    p = data.strings.compare.configure_menu.scale_it
-  .header--second-row__wrapper
-    button.header--second-row__wrapper--field.orientation-field(
+.menu--row
+  .menu--text-wrap
+    h2  = data.strings.compare.configure_menu.you_can
+    .menu--text
+      p = data.strings.compare.configure_menu.move_it
+    .menu--text
+      p = data.strings.compare.configure_menu.scale_it
+  .menu--field-wrap
+    button.menu--field.btn-orientation(
       ng-click="configureCtrl.toggleVertical()"
-      ng-class="{'active' : configureCtrl.isVertical()}"
+      ng-class="{'btn-active' : configureCtrl.isVertical()}"
     ) = data.strings.compare.configure_menu.orientation.vertical
-    button.header--second-row__wrapper--field.orientation-field(
+    button.menu--field.btn-orientation(
       ng-click="configureCtrl.toggleHorizontal()"
-      ng-class="{'active' : configureCtrl.isHorizontal()}"
+      ng-class="{'btn-active' : configureCtrl.isHorizontal()}"
     ) = data.strings.compare.configure_menu.orientation.horizontal

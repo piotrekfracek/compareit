@@ -1,11 +1,11 @@
 .compare-section ng-controller="CompareCtrl as compareCtrl"
   .container
-    header 
-      div: .compare--normal-header(
+    .menu
+      .compare-menu(
         ng-include="'/templates/compare/compare_menu.html'"
         ng-show="compareCtrl.isCompareEnabled()"
         )
-      div: .compare--configure-menu(
+      .configure-menu(
         ng-include="'/templates/compare/configure_menu.html'"
         ng-controller="ConfigureMenuCtrl as configureCtrl"
         ng-show="!compareCtrl.isCompareEnabled()"

@@ -1,6 +1,6 @@
-.header--first-row
-  h4.header--first-row__logo = data.strings.compare.normal_header.logo
-  .header--first-row__icons
+.menu--row.row_first
+  h4.menu--logo = data.strings.compare.normal_header.logo
+  .menu--icons
     button.i.fa.fa-plus.fa-2x(
       tooltips="" 
       ng-click="compareCtrl.backLandingWithReload()"
@@ -13,17 +13,17 @@
       tooltip-side="top" 
       tooltip-content = data.strings.compare.normal_header.edit
     )
-.header--second-row
-  h2    = data.strings.compare.normal_header.details
-  .header--second-row__text-line
-    h3  = data.strings.compare.normal_header.picture_1
-    p
-      | {{ compareCtrl.getFirstImageUrl() }}
-  .header--second-row__text-line
-    h3  = data.strings.compare.normal_header.picture_2
-    p 
-      | {{ compareCtrl.getSecondImageUrl() }}
-
-  .header--second-row__wrapper
-    i.header--second-row__wrapper--field.globe-field.active.fa.fa-globe
-    p.header--second-row__wrapper--field.link-field = data.strings.compare.normal_header.link_3
+.menu--row
+  .menu--text-wrap
+    h2   = data.strings.compare.normal_header.details
+    .menu--text
+      h3 = data.strings.compare.normal_header.picture_1
+      p
+        | {{ compareCtrl.getFirstImageUrl() }}
+    .menu--text
+      h3 = data.strings.compare.normal_header.picture_2
+      p 
+        | {{ compareCtrl.getSecondImageUrl() }}
+  .menu--field-wrap
+    i.menu--field.fld-globe.fa.fa-globe
+    p.menu--field.fld-link = data.strings.compare.normal_header.link_3
