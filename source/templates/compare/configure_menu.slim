@@ -2,16 +2,16 @@
   h1.h1 = data.strings.compare.configure_menu.header
   .menu--icons
     button.i.fa.fa-times.fa-2x(
-      ng-click="compareCtrl.enableCompareAndRestore()"
-      tooltips="" 
-      tooltip-side="top"
+      tooltips=""
+      tooltip-speed="fast"
       tooltip-content = data.strings.compare.configure_menu.cancel
+      ng-click="compareCtrl.enableCompareAndRestore()"
     )
     button.i.fa.fa-check.fa-2x(
-      ng-click="compareCtrl.enableCompareAndUpdateUrl()"
-      tooltips="" 
-      tooltip-side="top"
+      tooltips=""
+      tooltip-speed="fast"
       tooltip-content = data.strings.compare.configure_menu.save
+      ng-click="compareCtrl.enableCompareAndUpdateUrl()"
     )
 .menu--row
   .menu--text-wrap
