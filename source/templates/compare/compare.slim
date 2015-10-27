@@ -10,12 +10,12 @@
         ng-controller="ConfigureMenuCtrl as configureCtrl"
         ng-show="!compareCtrl.isCompareEnabled()"
         )
-    .image(
+    .image-container(
       image-compare=""
-      image-compare-selector=".image-container--front"
+      image-compare-selector=".image_front"
       image-orientation="compareCtrl.getOrientation()"
       is-compare-enabled="compareCtrl.isCompareEnabled()"
       first-image="compareCtrl.getFirstImage()"
       second-image="compareCtrl.getSecondImage()"
-      ng-class="{'image-container__dimness' : !compareCtrl.isCompareEnabled()}"
+      ng-class="{'image-dimness' : !compareCtrl.isCompareEnabled()}"
     )
