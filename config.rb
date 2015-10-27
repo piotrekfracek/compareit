@@ -1,5 +1,6 @@
 # Plugins
 activate :livereload
+activate :autoprefixer
 
 # Change Compass configuration
 compass_config do |config|
